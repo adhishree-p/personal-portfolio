@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Primary meta (edit these if details ever change) -->
+  <title>Adhishree Patil · Computer Engineering Student — ML & AI</title>
+  <meta name="description" content="Portfolio of Adhishree Patil, a third-year Computer Engineering student in Mumbai exploring Machine Learning, Artificial Intelligence and problem solving." />
+  <meta name="author" content="Adhishree Patil" />
+  <meta name="theme-color" content="#06030c" />
+
+  <!-- Inline SVG favicon: gradient "AP" mark (no extra file needed) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%237c3aed'/%3E%3Cstop offset='.55' stop-color='%23d946ef'/%3E%3Cstop offset='1' stop-color='%23fb7185'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='8' fill='url(%23g)'/%3E%3Ctext x='16' y='22' font-family='sans-serif' font-size='13' font-weight='700' fill='white' text-anchor='middle'%3EAP%3C/text%3E%3C/svg%3E" />
+
+  <!-- Fonts: Syne (display), Space Grotesk (body), JetBrains Mono (labels) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Local stylesheet (no frameworks used) -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- ===================== AMBIENT BACKGROUND ===================== -->
+  <!-- Layers: faint grid, drifting gradient orbs, interactive node canvas -->
+  <div class="bg-scene" aria-hidden="true">
+    <div class="bg-grid"></div>
+    <div class="bg-orb bg-orb--1"></div>
+    <div class="bg-orb bg-orb--2"></div>
+    <div class="bg-orb bg-orb--3"></div>
+    <canvas id="neural-canvas"></canvas>
+  </div>
+
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- ===================== NAVIGATION ===================== -->
+  <header class="site-header" id="site-header">
+    <nav class="nav container" aria-label="Primary">
+      <a class="nav__brand" href="#top">
+        <span class="nav__brand-mark" aria-hidden="true">AP</span>
+        <span class="nav__brand-text">adhishree<span class="grad-text">.patil</span></span>
+      </a>
+
+      <!-- Desktop links -->
+      <ul class="nav__links" id="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#certification">Certification</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <a class="btn btn--small nav__cta" href="#contact">Say hello</a>
+
+      <!-- Hamburger (mobile) -->
+      <button class="nav__toggle" id="nav-toggle" type="button"
+              aria-expanded="false" aria-controls="nav-links"
+              aria-label="Open navigation menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <main id="main">
+    <!-- ===================== HERO ===================== -->
+    <section class="hero container" id="top">
+
+      <!-- Small technology constellation: floating nodes + subtle linking
+           lines, scattered around (never over) the centred hero copy.
+           Purely decorative — hidden from assistive tech. -->
+      <div class="constellation" aria-hidden="true">
+        <svg class="constellation__lines" viewBox="0 0 100 100" preserveAspectRatio="none">
+          <line x1="8"  y1="26" x2="13" y2="55" />
+          <line x1="13" y1="55" x2="6"  y2="76" />
+          <line x1="93" y1="24" x2="90" y2="50" />
+          <line x1="90" y1="50" x2="91" y2="74" />
+          <line x1="38" y1="9"  x2="58" y2="8"  />
+          <line x1="91" y1="74" x2="83" y2="90" />
+        </svg>
+
+        <span class="node node--m" style="--x:38%; --y:9%;  --t:15s;">HTML</span>
+        <span class="node node--m" style="--x:58%; --y:8%;  --t:18s; --td:1.4s;">CSS</span>
+        <span class="node" style="--x:8%;  --y:26%; --t:16s; --td:.6s;">Python</span>
+        <span class="node" style="--x:93%; --y:24%; --t:14s; --td:2s;">Java</span>
+        <span class="node" style="--x:13%; --y:55%; --t:19s; --td:1s;">C++</span>
+        <span class="node" style="--x:90%; --y:50%; --t:17s; --td:.3s;">ML</span>
+        <span class="node" style="--x:6%;  --y:76%; --t:15s; --td:2.6s;">C</span>
+        <span class="node" style="--x:91%; --y:74%; --t:18s; --td:1.8s;">AI</span>
+        <span class="node node--m" style="--x:18%; --y:90%; --t:16s; --td:.9s;">FastAPI</span>
+        <span class="node node--m" style="--x:83%; --y:90%; --t:14s; --td:2.2s;">Django</span>
+        <span class="node node--m" style="--x:34%; --y:94%; --t:20s; --td:1.2s;">PostgreSQL</span>
+        <span class="node node--m" style="--x:64%; --y:93%; --t:17s; --td:.4s;">Git</span>
+        <span class="node node--dot" style="--x:26%; --y:12%; --t:16s; --td:1.5s;"></span>
+        <span class="node node--dot" style="--x:73%; --y:15%; --t:19s; --td:2.8s;"></span>
+        <span class="node node--dot" style="--x:47%; --y:88%; --t:15s; --td:.7s;"></span>
+      </div>
+
+      <!-- Centred hero copy: pill → name → roles → intro → CTAs -->
+      <div class="hero__content">
+        <p class="hero__eyebrow anim-1">
+          <span class="pulse-dot" aria-hidden="true"></span>
+          <span class="mono">Open to Opportunities</span>
+        </p>
+
+        <h1 class="hero__title">
+          <span class="hero__line anim-1">Adhishree</span>
+          <span class="hero__line hero__line--grad anim-2">Patil</span>
+        </h1>
+
+        <p class="hero__roles anim-3">
+          <span class="hero__roles-main">Computer Engineering Student</span>
+          <span class="hero__roles-sep" aria-hidden="true">·</span>
+          <span class="hero__roles-sub">Exploring <span class="grad-text">Machine Learning</span> &amp; <span class="grad-text">AI</span></span>
+        </p>
+
+        <p class="hero__tagline anim-4">
+          Turning curious ideas into things that actually work — currently via
+          Machine Learning and AI, with a little debugging along the way.
+        </p>
+
+        <div class="hero__actions anim-5">
+          <a class="btn btn--primary" href="#projects">See my work</a>
+          <a class="btn btn--ghost" href="#contact">Get in touch</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== LIGHTBOX ===================== -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true"
+         aria-labelledby="lightbox-title" hidden>
+      <div class="lightbox__backdrop" data-lightbox-close></div>
+      <figure class="lightbox__panel">
+        <button class="lightbox__close" type="button" data-lightbox-close aria-label="Close certificate view">×</button>
+        <img class="lightbox__img" id="lightbox-img" src="" alt="" />
+        <figcaption class="lightbox__caption mono" id="lightbox-title"></figcaption>
+      </figure>
+    </div>
+
+    <!-- ===================== SKILLS TICKER ===================== -->
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker__track">
+        <!-- Track is duplicated by script.js for a seamless loop -->
+        <span class="ticker__seq">
+          Python <i>◆</i> <em class="ticker__soft">Creative</em> <i>◆</i> C++ <i>◆</i> <em class="ticker__soft">Team Player</em> <i>◆</i> Java <i>◆</i> <em class="ticker__soft">Well-Spoken</em> <i>◆</i> C <i>◆</i> <em class="ticker__soft">Punctual</em> <i>◆</i> HTML <i>◆</i> <em class="ticker__soft">Problem Solver</em> <i>◆</i> CSS <i>◆</i> <em class="ticker__soft">Curious Learner</em> <i>◆</i> Django <i>◆</i> Machine Learning <i>◆</i> FastAPI <i>◆</i> AI <i>◆</i> Flask <i>◆</i> DSA <i>◆</i> PostgreSQL <i>◆</i> Git <i>◆</i> GitHub <i>◆</i>
+        </span>
+      </div>
+    </div>
+
+    <!-- ===================== ABOUT ===================== -->
+    <section class="section container" id="about">
+      <header class="section__head reveal">
+        <p class="section__tag mono">fig. 01 / about</p>
+        <h2 class="section__title">Who's behind <span class="grad-text">the terminal?</span></h2>
+      </header>
+
+      <div class="about__grid">
+        <div class="about__text reveal">
+          <p>
+            I'm Adhishree — a third-year Computer Engineering student exploring
+            <strong>Machine Learning</strong>, <strong>Artificial Intelligence</strong> and
+            software development. I enjoy understanding how things work under the hood,
+            solving problems through <strong>DSA</strong>, and turning ideas into practical
+            projects.
+          </p>
+          <p>
+            I'm still learning, experimenting, and occasionally debugging things that
+            seemed perfectly fine five minutes ago.
+          </p>
+          <p>
+            If you're building something interesting — or just want a second pair of
+            eyes on half-written code — I'll always read it properly.
+          </p>
+        </div>
+
+        <!-- Decorative terminal card (typing animated by script.js) -->
+        <figure class="terminal reveal" aria-label="Playful terminal-style introduction">
+          <div class="terminal__bar">
+            <span class="terminal__dot" style="--dot:#ff5f57"></span>
+            <span class="terminal__dot" style="--dot:#febc2e"></span>
+            <span class="terminal__dot" style="--dot:#28c840"></span>
+            <span class="terminal__title mono">adhishree@vit: ~/about</span>
+          </div>
+          <pre class="terminal__body"><code id="terminal-code"></code><span class="terminal__cursor" aria-hidden="true"></span></pre>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ===================== SKILLS ===================== -->
+    <section class="section container" id="skills">
+      <header class="section__head reveal">
+        <p class="section__tag mono">fig. 02 / stack</p>
+        <h2 class="section__title">What I <span class="grad-text">work with</span></h2>
+        <p class="section__sub">
+          The languages, frameworks and tools I reach for — plus the subjects I'm
+          actively learning, like machine learning.
+        </p>
+      </header>
+
+      <div class="skills__grid">
+        <!-- Languages -->
+        <article class="skill-card reveal">
+          <div class="skill-card__head">
+            <span class="skill-card__icon" aria-hidden="true">&lt;/&gt;</span>
+            <h3>Languages</h3>
+          </div>
+          <ul class="chips">
+            <li class="chip">C</li>
+            <li class="chip">C++</li>
+            <li class="chip">Java</li>
+            <li class="chip">Python</li>
+            <li class="chip">PostgreSQL</li>
+          </ul>
+        </article>
+
+        <!-- Web / Backend -->
+        <article class="skill-card reveal" style="--d:.06s">
+          <div class="skill-card__head">
+            <span class="skill-card__icon" aria-hidden="true">{ }</span>
+            <h3>Web &amp; Backend</h3>
+          </div>
+          <ul class="chips">
+            <li class="chip">HTML</li>
+            <li class="chip">CSS</li>
+            <li class="chip">Django</li>
+            <li class="chip">FastAPI</li>
+            <li class="chip">Flask</li>
+          </ul>
+        </article>
+
+        <!-- Tools -->
+        <article class="skill-card reveal" style="--d:.12s">
+          <div class="skill-card__head">
+            <span class="skill-card__icon" aria-hidden="true">⌘</span>
+            <h3>Tools</h3>
+          </div>
+          <ul class="chips">
+            <li class="chip">Git</li>
+            <li class="chip">GitHub</li>
+            <li class="chip">VS Code</li>
+            <li class="chip">Google Colab</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===================== PROJECTS ===================== -->
+    <section class="section container" id="projects">
+      <header class="section__head reveal">
+        <p class="section__tag mono">fig. 03 / builds</p>
+        <h2 class="section__title">Things I've <span class="grad-text">built</span></h2>
+        <p class="section__sub">
+          Real projects only — this section grows as I build.
+        </p>
+      </header>
+
+      <div class="projects__grid projects__grid--single">
+        <article class="project-card project-card--featured reveal">
+          <div class="project-card__top">
+            <span class="project-card__num mono">P—01</span>
+            <span class="status status--live mono">live on github</span>
+          </div>
+          <h3>SmartTracker AI</h3>
+          <p class="project-card__desc">
+            An AI-powered grievance and waste-management system that analyses complaints,
+            identifies relevant issue categories, and supports efficient resolution workflows.
+          </p>
+          <!-- Tech chips: add the real technologies here when confirmed -->
+          <div class="project-card__links">
+            <a class="btn btn--primary" href="https://github.com/VedantParate27/SmartTrackerAI-Pipeline-" target="_blank" rel="noopener noreferrer">View on GitHub ↗</a>
+          </div>
+        </article>
+
+        <!-- Single-project layout: let the one card own the row visually -->
+        <article class="project-card project-card--cta reveal" style="--d:.1s">
+          <span class="project-card__num mono">↗</span>
+          <h3>More in the pipeline</h3>
+          <p class="project-card__desc">
+            Work in progress — new builds land here (and on GitHub) as they're ready.
+          </p>
+          <div class="project-card__links">
+            <a class="btn btn--ghost" href="https://github.com/adhishree-p" target="_blank" rel="noopener noreferrer">Follow on GitHub</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===================== EDUCATION ===================== -->
+    <section class="section container" id="education">
+      <header class="section__head reveal">
+        <p class="section__tag mono">fig. 04 / training data</p>
+        <h2 class="section__title">Education <span class="grad-text">&amp; origins</span></h2>
+      </header>
+
+      <ol class="timeline">
+        <li class="timeline__item reveal">
+          <span class="timeline__node" aria-hidden="true"></span>
+          <div class="timeline__card">
+            <p class="timeline__years mono">2022 → 2028 · expected</p>
+            <h3>B.Tech, Computer Engineering</h3>
+            <p class="timeline__place">Vidyalankar Institute of Technology, Mumbai</p>
+            <p class="timeline__note">Third year — specialising interest: Machine Learning &amp; AI.</p>
+          </div>
+        </li>
+        <li class="timeline__item reveal" style="--d:.08s">
+          <span class="timeline__node" aria-hidden="true"></span>
+          <div class="timeline__card">
+            <p class="timeline__years mono">Class XII</p>
+            <h3>Junior Science College</h3>
+            <p class="timeline__place">PACE Junior Science College, Kalyan</p>
+            <p class="timeline__score mono">78.33 %</p>
+          </div>
+        </li>
+        <li class="timeline__item reveal" style="--d:.16s">
+          <span class="timeline__node" aria-hidden="true"></span>
+          <div class="timeline__card">
+            <p class="timeline__years mono">Class X</p>
+            <h3>Secondary School</h3>
+            <p class="timeline__place">BK Birla Public School, Kalyan</p>
+            <p class="timeline__score mono">94.8 %</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ===================== CERTIFICATION ===================== -->
+    <section class="section container" id="certification">
+      <header class="section__head reveal">
+        <p class="section__tag mono">fig. 05 / proof of work</p>
+        <h2 class="section__title">Certified <span class="grad-text">curiosity</span></h2>
+        <p class="section__sub">Click any certificate to view it larger.</p>
+      </header>
+
+      <div class="cert-grid">
+        <!-- Certificate 1: L&T Skill Trainers Academy -->
+        <article class="cert-card reveal">
+          <button class="cert-card__thumb" type="button" data-lightbox-open
+                  data-full="assets/certificates/cert-lt-machine-learning.jpg"
+                  data-title="Machine Learning with Python — L&amp;T Skill Trainers Academy"
+                  aria-label="View Machine Learning with Python certificate from L&amp;T Skill Trainers Academy, larger">
+            <img src="assets/certificates/cert-lt-machine-learning.jpg"
+                 alt="L&T Skill Trainers Academy certificate: 60-hour Credit Transfer Program in Machine Learning with Python, completed by Adhishree Patil"
+                 loading="lazy" />
+          </button>
+          <div class="cert-card__info">
+            <p class="cert-card__kicker mono">certification · machine learning</p>
+            <h3>Machine Learning with Python</h3>
+            <p class="cert-card__org">Issued by <strong>L&amp;T Skill Trainers Academy</strong></p>
+            <p class="cert-card__note">A 60-hour residential Credit Transfer Program covering machine learning with Python.</p>
+            <div class="cert-card__actions">
+              <button class="btn btn--ghost btn--small" type="button" data-lightbox-open
+                      data-full="assets/certificates/cert-lt-machine-learning.jpg"
+                      data-title="Machine Learning with Python — L&amp;T Skill Trainers Academy">View certificate</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Certificate 2: VIT Certificate of Merit -->
+        <article class="cert-card reveal" style="--d:.08s">
+          <button class="cert-card__thumb" type="button" data-lightbox-open
+                  data-full="assets/certificates/cert-merit-professional-skills.png"
+                  data-title="Certificate of Merit — Vidyalankar Institute of Technology"
+                  aria-label="View Certificate of Merit from Vidyalankar Institute of Technology, larger">
+            <img src="assets/certificates/cert-merit-professional-skills.png"
+                 alt="Vidyalankar Institute of Technology Certificate of Merit: awarded to Adhishree Patil for securing first place in Professional Skills, Semester IV, Computer Engineering"
+                 loading="lazy" />
+          </button>
+          <div class="cert-card__info">
+            <p class="cert-card__kicker mono">merit · academics</p>
+            <h3>Certificate of Merit</h3>
+            <p class="cert-card__org">Awarded by <strong>Vidyalankar Institute of Technology</strong></p>
+            <p class="cert-card__note">First place in Professional Skills, Semester IV, Computer Engineering.</p>
+            <div class="cert-card__actions">
+              <button class="btn btn--ghost btn--small" type="button" data-lightbox-open
+                      data-full="assets/certificates/cert-merit-professional-skills.png"
+                      data-title="Certificate of Merit — Vidyalankar Institute of Technology">View certificate</button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===================== CONTACT ===================== -->
+    <section class="section container contact" id="contact">
+      <header class="section__head reveal">
+        <p class="section__tag mono">fig. 06 / handshake</p>
+        <h2 class="section__title contact__title">Let's build something <span class="grad-text">worth showing.</span></h2>
+        <p class="section__sub contact__sub">
+          Whether it's a project idea, an internship, a study group or just a really good
+          question — my inbox is open. I reply faster than my models converge.
+        </p>
+      </header>
+
+      <div class="contact__grid">
+        <a class="contact-card reveal" href="mailto:adhishree248@gmail.com">
+          <span class="contact-card__label mono">email</span>
+          <span class="contact-card__value">adhishree248@gmail.com</span>
+          <span class="contact-card__hint">best for anything formal-ish</span>
+        </a>
+        <a class="contact-card reveal" style="--d:.06s" href="tel:+919222223395">
+          <span class="contact-card__label mono">phone</span>
+          <span class="contact-card__value">+91 92222 23395</span>
+          <span class="contact-card__hint">for quicker conversations</span>
+        </a>
+        <a class="contact-card reveal" style="--d:.12s" href="https://github.com/adhishree-p" target="_blank" rel="noopener noreferrer">
+          <span class="contact-card__label mono">github</span>
+          <span class="contact-card__value">github.com/adhishree-p</span>
+          <span class="contact-card__hint">where the code lives</span>
+        </a>
+        <a class="contact-card reveal" style="--d:.18s" href="https://www.linkedin.com/in/adhishree-" target="_blank" rel="noopener noreferrer">
+          <span class="contact-card__label mono">linkedin</span>
+          <span class="contact-card__value">linkedin.com/in/adhishree-</span>
+          <span class="contact-card__hint">say hello professionally</span>
+        </a>
+      </div>
+
+      <div class="contact__copyrow reveal">
+        <button class="btn btn--ghost" id="copy-email" type="button" data-email="adhishree248@gmail.com">
+          <span id="copy-email-label">Copy email address</span>
+        </button>
+        <span class="mono contact__copynote" id="copy-note" role="status" aria-live="polite"></span>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p class="footer__line">
+        <span class="mono grad-text">&lt;/&gt;</span>
+        Designed &amp; built by Adhishree Patil — HTML, CSS &amp; vanilla JS, no frameworks.
+      </p>
+      <p class="footer__meta mono">Mumbai, India · <span id="footer-year">2026</span> · still compiling</p>
+    </div>
+  </footer>
+
+  <!-- Local script (no libraries used) -->
+  <script src="script.js"></script>
+</body>
+</html>
