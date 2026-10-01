@@ -249,39 +249,39 @@
     <!-- ===================== PROJECTS ===================== -->
     <section class="section container" id="projects">
       <header class="section__head reveal">
-        <p class="section__tag mono">fig. 03 / builds</p>
+        <p class="section__tag mono">fig. 03 / featured build</p>
         <h2 class="section__title">Things I've <span class="grad-text">built</span></h2>
         <p class="section__sub">
-          Real projects only — this section grows as I build.
+          Featured project — focused on real AI &amp; system solutions.
         </p>
       </header>
 
-      <div class="projects__grid projects__grid--single">
-        <article class="project-card project-card--featured reveal">
-          <div class="project-card__top">
-            <span class="project-card__num mono">P—01</span>
+      <div class="project-featured-container reveal">
+        <article class="project-featured">
+          <div class="project-featured__header">
+            <span class="project-featured__tag mono">FEATURED PROJECT / 01</span>
             <span class="status status--live mono">live on github</span>
           </div>
-          <h3>SmartTracker AI</h3>
-          <p class="project-card__desc">
+
+          <h3 class="project-featured__title">SMARTTRACKER AI</h3>
+
+          <p class="project-featured__desc">
             An AI-powered grievance and waste-management system that analyses complaints,
             identifies relevant issue categories, and supports efficient resolution workflows.
           </p>
-          <!-- Tech chips: add the real technologies here when confirmed -->
-          <div class="project-card__links">
-            <a class="btn btn--primary" href="https://github.com/VedantParate27/SmartTrackerAI-Pipeline-" target="_blank" rel="noopener noreferrer">View on GitHub ↗</a>
-          </div>
-        </article>
 
-        <!-- Single-project layout: let the one card own the row visually -->
-        <article class="project-card project-card--cta reveal" style="--d:.1s">
-          <span class="project-card__num mono">↗</span>
-          <h3>More in the pipeline</h3>
-          <p class="project-card__desc">
-            Work in progress — new builds land here (and on GitHub) as they're ready.
-          </p>
-          <div class="project-card__links">
-            <a class="btn btn--ghost" href="https://github.com/adhishree-p" target="_blank" rel="noopener noreferrer">Follow on GitHub</a>
+          <div class="project-featured__tech">
+            <span class="project-featured__tech-label mono">RELEVANT TECHNOLOGIES:</span>
+            <ul class="chips">
+              <li class="chip">Python</li>
+              <li class="chip">Machine Learning</li>
+              <li class="chip">FastAPI</li>
+              <li class="chip">AI Pipeline</li>
+            </ul>
+          </div>
+
+          <div class="project-featured__actions">
+            <a class="btn btn--primary" href="https://github.com/VedantParate27/SmartTrackerAI-Pipeline-" target="_blank" rel="noopener noreferrer">View on GitHub ↗</a>
           </div>
         </article>
       </div>
@@ -330,53 +330,67 @@
       <header class="section__head reveal">
         <p class="section__tag mono">fig. 05 / proof of work</p>
         <h2 class="section__title">Certified <span class="grad-text">curiosity</span></h2>
-        <p class="section__sub">Click any certificate to view it larger.</p>
+        <p class="section__sub">Vertically stacked credentials &amp; achievements.</p>
       </header>
 
-      <div class="cert-grid">
-        <!-- Certificate 1: L&T Skill Trainers Academy -->
-        <article class="cert-card reveal">
-          <button class="cert-card__thumb" type="button" data-lightbox-open
-                  data-full="assets/certificates/cert-lt-machine-learning.jpg"
-                  data-title="Machine Learning with Python — L&amp;T Skill Trainers Academy"
-                  aria-label="View Machine Learning with Python certificate from L&amp;T Skill Trainers Academy, larger">
-            <img src="assets/certificates/cert-lt-machine-learning.jpg"
-                 alt="L&T Skill Trainers Academy certificate: 60-hour Credit Transfer Program in Machine Learning with Python, completed by Adhishree Patil"
-                 loading="lazy" />
-          </button>
-          <div class="cert-card__info">
-            <p class="cert-card__kicker mono">certification · machine learning</p>
-            <h3>Machine Learning with Python</h3>
-            <p class="cert-card__org">Issued by <strong>L&amp;T Skill Trainers Academy</strong></p>
-            <p class="cert-card__note">A 60-hour residential Credit Transfer Program covering machine learning with Python.</p>
-            <div class="cert-card__actions">
-              <button class="btn btn--ghost btn--small" type="button" data-lightbox-open
-                      data-full="assets/certificates/cert-lt-machine-learning.jpg"
-                      data-title="Machine Learning with Python — L&amp;T Skill Trainers Academy">View certificate</button>
-            </div>
+      <div class="cert-list">
+        <!-- Entry 01: Machine Learning with Python -->
+        <article class="cert-item reveal">
+          <div class="cert-item__meta">
+            <span class="cert-item__num mono">01 / CERTIFICATION</span>
+          </div>
+          <div class="cert-item__main">
+            <h3 class="cert-item__title">Machine Learning with Python</h3>
+            <p class="cert-item__org">L&amp;T Skill Trainers Academy</p>
+            <p class="cert-item__detail">60-hour Credit Transfer Program</p>
+          </div>
+          <div class="cert-item__action">
+            <button class="btn btn--ghost btn--small cert-btn" type="button" data-lightbox-open
+                    data-full="assets/certificates/cert-lt-machine-learning.jpg"
+                    data-title="Machine Learning with Python — L&amp;T Skill Trainers Academy"
+                    aria-label="View Machine Learning with Python certificate from L&amp;T Skill Trainers Academy">
+              View Certificate ↗
+            </button>
           </div>
         </article>
 
-        <!-- Certificate 2: VIT Certificate of Merit -->
-        <article class="cert-card reveal" style="--d:.08s">
-          <button class="cert-card__thumb" type="button" data-lightbox-open
-                  data-full="assets/certificates/cert-merit-professional-skills.png"
-                  data-title="Certificate of Merit — Vidyalankar Institute of Technology"
-                  aria-label="View Certificate of Merit from Vidyalankar Institute of Technology, larger">
-            <img src="assets/certificates/cert-merit-professional-skills.png"
-                 alt="Vidyalankar Institute of Technology Certificate of Merit: awarded to Adhishree Patil for securing first place in Professional Skills, Semester IV, Computer Engineering"
-                 loading="lazy" />
-          </button>
-          <div class="cert-card__info">
-            <p class="cert-card__kicker mono">merit · academics</p>
-            <h3>Certificate of Merit</h3>
-            <p class="cert-card__org">Awarded by <strong>Vidyalankar Institute of Technology</strong></p>
-            <p class="cert-card__note">First place in Professional Skills, Semester IV, Computer Engineering.</p>
-            <div class="cert-card__actions">
-              <button class="btn btn--ghost btn--small" type="button" data-lightbox-open
-                      data-full="assets/certificates/cert-merit-professional-skills.png"
-                      data-title="Certificate of Merit — Vidyalankar Institute of Technology">View certificate</button>
-            </div>
+        <!-- Entry 02: Certificate of Merit -->
+        <article class="cert-item reveal" style="--d:.08s">
+          <div class="cert-item__meta">
+            <span class="cert-item__num mono">02 / ACADEMIC ACHIEVEMENT</span>
+          </div>
+          <div class="cert-item__main">
+            <h3 class="cert-item__title">Certificate of Merit</h3>
+            <p class="cert-item__org">Vidyalankar Institute of Technology</p>
+            <p class="cert-item__detail">First Place — Professional Skills, Semester IV, Computer Engineering</p>
+          </div>
+          <div class="cert-item__action">
+            <button class="btn btn--ghost btn--small cert-btn" type="button" data-lightbox-open
+                    data-full="assets/certificates/cert-merit-professional-skills.png"
+                    data-title="Certificate of Merit — Vidyalankar Institute of Technology"
+                    aria-label="View Certificate of Merit from Vidyalankar Institute of Technology">
+              View Certificate ↗
+            </button>
+          </div>
+        </article>
+
+        <!-- Entry 03: NPTEL Certificate -->
+        <article class="cert-item reveal" style="--d:.16s">
+          <div class="cert-item__meta">
+            <span class="cert-item__num mono">03 / CERTIFICATION</span>
+          </div>
+          <div class="cert-item__main">
+            <h3 class="cert-item__title">NPTEL Certificate</h3>
+            <p class="cert-item__org">NPTEL</p>
+            <p class="cert-item__detail">Online Certification Program</p>
+          </div>
+          <div class="cert-item__action">
+            <button class="btn btn--ghost btn--small cert-btn" type="button" data-lightbox-open
+                    data-full="assets/certificates/cert-nptel.jpg"
+                    data-title="NPTEL Certificate — NPTEL"
+                    aria-label="View NPTEL Certificate">
+              View Certificate ↗
+            </button>
           </div>
         </article>
       </div>

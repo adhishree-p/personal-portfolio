@@ -315,7 +315,7 @@ if (canvas && canvas.getContext) {
    9. Project cards — soft gradient glow that follows the cursor
       (sets --mx / --my custom properties used by the CSS)
    ------------------------------------------------------------ */
-const glowCards = $$(".project-card");
+const glowCards = $$(".project-card, .project-featured");
 
 if (glowCards.length && !REDUCED_MOTION && window.matchMedia("(pointer: fine)").matches) {
   glowCards.forEach((card) => {
@@ -390,9 +390,13 @@ if (lightbox) {
 
   const openLightbox = (trigger) => {
     lastFocused = document.activeElement;
+    const titleText = trigger.dataset.title || "Certificate";
+    lbImg.onerror = () => {
+      lbTitle.textContent = `${titleText} — image preview unavailable`;
+    };
     lbImg.src = trigger.dataset.full || "";
-    lbImg.alt = trigger.getAttribute("aria-label") || trigger.dataset.title || "Certificate";
-    lbTitle.textContent = trigger.dataset.title || "";
+    lbImg.alt = trigger.getAttribute("aria-label") || titleText;
+    lbTitle.textContent = titleText;
     lightbox.hidden = false;
     document.body.style.overflow = "hidden"; // lock page scroll while open
     lbClose.focus();

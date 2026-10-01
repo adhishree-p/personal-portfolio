@@ -715,44 +715,56 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
 /* ------------------------------------------------------------
    11. Projects
    ------------------------------------------------------------ */
-.projects__grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.4rem;
-  align-items: stretch;
+.project-featured-container {
+  max-width: 52rem;
 }
 
-.project-card {
-  display: flex;
-  flex-direction: column;
-  padding: 1.7rem;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  background: var(--panel);
-  transition: transform 0.35s var(--ease-out), border-color 0.35s, box-shadow 0.35s;
+.project-featured {
   position: relative;
+  padding: 2.4rem 2.6rem;
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  background:
+    linear-gradient(var(--bg-soft), var(--bg-soft)) padding-box,
+    var(--grad) border-box;
+  box-shadow: 0 20px 60px rgba(124, 58, 237, 0.12);
+  transition: transform 0.35s var(--ease-out), box-shadow 0.35s;
   overflow: hidden;
 }
-.project-card::after {
-  /* Soft radial glow following the cursor (position set by script.js) */
+
+.project-featured::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgba(217, 70, 239, 0.1), transparent 45%);
+  background: radial-gradient(500px circle at var(--mx, 50%) var(--my, 50%), rgba(217, 70, 239, 0.12), transparent 50%);
   opacity: 0;
   transition: opacity 0.35s;
   pointer-events: none;
 }
-.project-card:hover { transform: translateY(-6px); border-color: var(--border-strong); }
-.project-card:hover::after { opacity: 1; }
 
-.project-card__top {
+.project-featured:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 28px 70px rgba(124, 58, 237, 0.2);
+}
+
+.project-featured:hover::after {
+  opacity: 1;
+}
+
+.project-featured__header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1.2rem;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
-.project-card__num { color: var(--text-faint); font-size: 0.78rem; letter-spacing: 0.15em; }
+
+.project-featured__tag {
+  color: var(--magenta);
+  font-size: 0.76rem;
+  letter-spacing: 0.18em;
+}
 
 .status {
   font-size: 0.68rem;
@@ -768,37 +780,6 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
   50%      { box-shadow: 0 0 0 6px rgba(251, 113, 133, 0); }
 }
 
-.project-card h3 { font-size: 1.15rem; font-weight: 600; margin-bottom: 0.6rem; }
-.project-card__desc {
-  color: var(--text-dim);
-  font-size: 0.9rem;
-  margin-bottom: 1.2rem;
-  flex-grow: 1;
-}
-.project-card__chips { margin-bottom: 1.2rem; }
-
-.project-card__links {
-  display: flex;
-  gap: 0.6rem;
-  flex-wrap: wrap;
-}
-.project-card__links .btn { padding: 0.55rem 1.1rem; font-size: 0.76rem; }
-
-/* CTA card */
-/* Single real project: let it own the row */
-.projects__grid--single {
-  grid-template-columns: 1.25fr 0.75fr;
-}
-
-.project-card--featured {
-  border: 1px solid transparent;
-  background:
-    linear-gradient(var(--bg-soft), var(--bg-soft)) padding-box,
-    var(--grad) border-box;
-  box-shadow: 0 20px 60px rgba(124, 58, 237, 0.14);
-}
-
-/* "Live on GitHub" status pill (green-leaning, subtle) */
 .status--live {
   border-color: rgba(40, 200, 130, 0.4);
   color: #4ade80;
@@ -806,26 +787,39 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
   animation: none;
 }
 
-.project-card--cta {
-  border: 1px solid transparent;
-  background:
-    linear-gradient(var(--bg-soft), var(--bg-soft)) padding-box,
-    var(--grad) border-box;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 0.4rem;
+.project-featured__title {
+  font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  margin-bottom: 0.8rem;
 }
-.project-card--cta .project-card__num {
-  font-size: 1.6rem;
-  background: var(--grad);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.project-card--cta h3 { font-size: 1.25rem; }
 
-/* Placeholder cards look slightly de-emphasised */
-.project-card--placeholder { border-style: dashed; }
+.project-featured__desc {
+  color: var(--text-dim);
+  font-size: 0.98rem;
+  line-height: 1.7;
+  margin-bottom: 1.6rem;
+  max-width: 44rem;
+}
+
+.project-featured__tech {
+  margin-bottom: 1.8rem;
+}
+
+.project-featured__tech-label {
+  display: block;
+  font-size: 0.68rem;
+  color: var(--text-faint);
+  letter-spacing: 0.15em;
+  margin-bottom: 0.65rem;
+}
+
+.project-featured__actions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
 
 /* ------------------------------------------------------------
    12. Education timeline
@@ -894,62 +888,85 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
 }
 
 /* ------------------------------------------------------------
-   13. Certifications grid + lightbox
+   13. Certifications (Vertical / Editorial Layout) + Lightbox
    ------------------------------------------------------------ */
-.cert-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.4rem;
-}
-
-.cert-card {
+.cert-list {
   display: flex;
   flex-direction: column;
-  padding: 1.4rem;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  background: var(--panel);
-  transition: transform 0.35s var(--ease-out), border-color 0.35s, box-shadow 0.35s;
-}
-.cert-card:hover {
-  transform: translateY(-5px);
-  border-color: rgba(217, 70, 239, 0.45);
-  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.45), 0 0 30px rgba(217, 70, 239, 0.1);
+  gap: 0;
+  max-width: 52rem;
+  border-top: 1px solid var(--border);
 }
 
-/* Clickable certificate thumbnail → opens the lightbox */
-.cert-card__thumb {
-  display: block;
-  width: 100%;
-  padding: 0;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  overflow: hidden;
-  cursor: zoom-in;
+.cert-item {
+  display: grid;
+  grid-template-columns: 14rem 1fr auto;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.8rem 1rem;
+  border-bottom: 1px solid var(--border);
+  background: transparent;
+  transition: background 0.3s, border-color 0.3s, padding 0.3s var(--ease-out);
+  position: relative;
+}
+
+.cert-item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--grad);
+  opacity: 0;
+  transition: opacity 0.35s;
+}
+
+.cert-item:hover {
   background: rgba(255, 255, 255, 0.02);
-  transition: border-color 0.3s;
-}
-.cert-card__thumb:hover { border-color: rgba(217, 70, 239, 0.5); }
-.cert-card__thumb img {
-  width: 100%;
-  aspect-ratio: 3 / 2;
-  object-fit: cover;
-  object-position: top center;
-  display: block;
+  border-bottom-color: var(--border-strong);
 }
 
-.cert-card__info { padding: 1.1rem 0.3rem 0.2rem; }
-.cert-card__kicker {
-  font-size: 0.68rem;
-  color: var(--magenta);
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  margin-bottom: 0.45rem;
+.cert-item:hover::before {
+  opacity: 1;
 }
-.cert-card__info h3 { font-size: 1.15rem; font-weight: 600; }
-.cert-card__org { color: var(--text-dim); font-size: 0.9rem; margin-top: 0.25rem; }
-.cert-card__note { color: var(--text-faint); font-size: 0.84rem; margin-top: 0.55rem; }
-.cert-card__actions { margin-top: 1rem; }
+
+.cert-item__num {
+  font-size: 0.72rem;
+  color: var(--magenta);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.cert-item__title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.25rem;
+}
+
+.cert-item__org {
+  font-size: 0.92rem;
+  color: var(--text-dim);
+  font-weight: 500;
+}
+
+.cert-item__detail {
+  font-size: 0.84rem;
+  color: var(--text-faint);
+  margin-top: 0.2rem;
+}
+
+.cert-item__action {
+  display: flex;
+  align-items: center;
+}
+
+.cert-btn {
+  padding: 0.55rem 1.1rem;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
 
 /* --- Lightbox modal --- */
 .lightbox {
@@ -959,14 +976,19 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
   display: grid;
   place-items: center;
   padding: 1.5rem;
+  opacity: 1;
+  transition: opacity 0.3s var(--ease-out);
 }
-.lightbox[hidden] { display: none; }
+.lightbox[hidden] {
+  display: none;
+  opacity: 0;
+}
 .lightbox__backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(4, 2, 8, 0.82);
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
+  background: rgba(4, 2, 8, 0.85);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
 }
 .lightbox__panel {
   position: relative;
@@ -977,6 +999,17 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
   flex-direction: column;
   gap: 0.8rem;
   margin: 0;
+  animation: modal-pop 0.3s var(--ease-out);
+}
+@keyframes modal-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.94) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
 }
 .lightbox__img {
   max-width: 100%;
@@ -984,12 +1017,12 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
   object-fit: contain;
   border: 1px solid var(--border-strong);
   border-radius: var(--radius);
-  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.65), 0 0 60px rgba(217, 70, 239, 0.12);
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.75), 0 0 60px rgba(217, 70, 239, 0.15);
   background: #0b0614;
 }
 .lightbox__caption {
   color: var(--text-dim);
-  font-size: 0.78rem;
+  font-size: 0.8rem;
   letter-spacing: 0.08em;
   text-align: center;
 }
@@ -998,20 +1031,22 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
   top: -0.9rem;
   right: -0.9rem;
   z-index: 2;
-  width: 2.4rem;
-  height: 2.4rem;
+  width: 2.5rem;
+  height: 2.5rem;
   border-radius: 50%;
   border: 1px solid var(--border-strong);
   background: var(--bg-soft);
   color: var(--text);
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   line-height: 1;
   display: grid;
   place-items: center;
-  transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+  cursor: pointer;
+  transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s, background 0.25s;
 }
 .lightbox__close:hover {
   border-color: var(--magenta);
+  background: rgba(217, 70, 239, 0.15);
   box-shadow: 0 0 18px rgba(217, 70, 239, 0.4);
   transform: rotate(90deg);
 }
@@ -1163,7 +1198,18 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
 
   .about__grid { grid-template-columns: 1fr; }
 
-  .cert-grid { grid-template-columns: 1fr; }
+  .cert-item {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+    align-items: flex-start;
+    padding: 1.4rem 0.5rem;
+  }
+  .cert-item__action {
+    margin-top: 0.4rem;
+  }
+  .project-featured {
+    padding: 1.8rem 1.4rem;
+  }
 }
 
 @media (max-width: 560px) {
